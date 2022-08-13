@@ -6,6 +6,7 @@ const geoCode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 //random comment
 
@@ -107,7 +108,7 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
-
+// Port is either 3000 (local) or variable for heroku
+app.listen(port, () => {
+    console.log('Server is up on port ' + port + '.')
 })
